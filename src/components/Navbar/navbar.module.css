@@ -1,0 +1,17 @@
+.container {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  z-index: 2;
+}
+
+.row {
+  height: 100%;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
