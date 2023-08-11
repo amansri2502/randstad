@@ -35,7 +35,7 @@ function App() {
     if (searchMarker) {
       setTimeout(() => {
         setSearchMarker('');
-      }, 5000);
+      }, 4000);
     }
   }, [searchMarker]);
 
