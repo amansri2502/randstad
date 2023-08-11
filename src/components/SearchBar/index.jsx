@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import styles from './searchBar.module.css';
 import searchIcon from '/icons/search.svg';
 import { useState, useEffect } from 'react';
 
 const SearchBar = ({ data, setSelectedCard, setSearchMarker }) => {
+
   const [searchInput, setSearchInput] = useState('');
-  // eslint-disable-next-line no-unused-vars
   const [searchResult, setSearchResult] = useState([]);
 
   const createSearchList = () => {
@@ -38,7 +39,6 @@ const SearchBar = ({ data, setSelectedCard, setSearchMarker }) => {
 
   useEffect(() => {
     createSearchList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchInput]);
 
   return (
