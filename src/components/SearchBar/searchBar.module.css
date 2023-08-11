@@ -1,0 +1,48 @@
+.inputWrapper {
+  background-color: #fff;
+  border-radius: 6px;
+  height: 2.5rem;
+  padding: 0 0.9rem;
+  box-shadow: 0px 0px 8px #ddddddac;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input{
+    background-color: transparent;
+    border: none;
+    margin-left: .5rem;
+    height: 100%;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.input:focus{
+    outline: none;
+}
+
+.resultList{
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 8px #ddddddac;
+    border-radius: 6px;
+    left:0px;
+    top:50px;
+    z-index: 2;
+    max-height: 300px;
+    overflow-y: auto;
+    
+}
+
+.result{
+    padding:10px 20px;
+    cursor:pointer
+}
+
+.result:hover{
+    background-color: #efefef;
+}

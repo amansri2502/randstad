@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg';
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import styles from './app.module.css';
@@ -10,6 +7,7 @@ import CardList from './components/CardList';
 function App() {
   const [cardData, setCardData] = useState([]);
   const [selectedCard, setSelectedCard] = useState('');
+  const [searchMarker, setSearchMarker] = useState('');
 
   const fetchData = () => {
     fetch('https://jsonplaceholder.typicode.com/albums')
@@ -33,9 +31,21 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (searchMarker) {
+      setTimeout(() => {
+        setSearchMarker('');
+      }, 5000);
+    }
+  }, [searchMarker]);
+
   return (
     <>
-      <Navbar />
+      <Navbar
+        data={cardData}
+        setSearchMarker={setSearchMarker}
+        setSelectedCard={setSelectedCard}
+      />
       <div className={styles.container}>
         {selectedCard ? (
           <ItemList
@@ -43,6 +53,7 @@ function App() {
             selectedCard={selectedCard}
             selectedItems={getFilteredItem()}
             setSelectedCard={setSelectedCard}
+            searchMarker={searchMarker}
           />
         ) : (
           <CardList setSelectedCard={setSelectedCard} data={cardData} />
