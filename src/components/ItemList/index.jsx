@@ -19,13 +19,7 @@ const ItemList = ({
       <div className={styles.title}>{`Card Number: ${selectedCard}`}</div>
       <div className={styles.listContainer}>
         {selectedItems.map((item) => (
-          <div
-            onClick={() => markItemAsSeen(item.id)}
-            key={item.id}
-            className={`${styles.listItem} ${
-              item.isVisited && styles.visitedItem
-            }`}
-          >
+          <div onClick={() => markItemAsSeen(item.id)} key={item.id}className={`${styles.listItem} ${item.isVisited && styles.visitedItem}`}>
             {item.title}
           </div>
         ))}

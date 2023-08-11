@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 // import reactLogo from './assets/react.svg';
 // import viteLogo from '/vite.svg';
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import styles from './app.module.css';
 import ItemList from './components/ItemList';
-
+import CardList from './components/CardList';
 
 function App() {
   const [cardData, setCardData] = useState([]);
@@ -13,11 +14,8 @@ function App() {
   const fetchData = () => {
     fetch('https://jsonplaceholder.typicode.com/albums')
       .then((response) => response.json())
-      .then((data) => setCardData(data));
-  };
-
-  const getUniqueUserId = (data) => {
-    return [...new Set(data.map((item) => item.userId))];
+      .then((data) => setCardData(data))
+      .catch((e) => console.log(e));
   };
 
   const getFilteredItem = () => {
@@ -39,20 +37,15 @@ function App() {
     <>
       <Navbar />
       <div className={styles.container}>
-        {!selectedCard ? (
-          cardData.length > 0 &&
-          getUniqueUserId(cardData).map((item) => (
-            <div key={item} onClick={() => setSelectedCard(item)}>
-              {item}
-            </div>
-          ))
-        ) : (
+        {selectedCard ? (
           <ItemList
             markItemAsSeen={markItemAsSeen}
             selectedCard={selectedCard}
             selectedItems={getFilteredItem()}
             setSelectedCard={setSelectedCard}
           />
+        ) : (
+          <CardList setSelectedCard={setSelectedCard} data={cardData} />
         )}
       </div>
     </>
