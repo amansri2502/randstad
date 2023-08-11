@@ -2,7 +2,7 @@
 
 # Randstad Assignment 🚀
 
-[Live link]()
+[Live link](https://64d69cf72fce3c12da1942f8--effortless-meringue-d3fc14.netlify.app/)
 
 
 ## Welcome! 👋
